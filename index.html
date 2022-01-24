@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MobX playground</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.0.0-rc.0-next-05a55a4b0-20220119/umd/react.production.min.js" integrity="sha512-oPIadIXxj0QLUfGcdzP5hFKSDelfxuX6LdMeopTmcLDAa9JSTJOjluDZ3hni67StATP59TeeT+ChZcXuiOYJ6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.0.0-rc.0-next-05a55a4b0-20220119/umd/react-dom.production.min.js" integrity="sha512-enRVsHGOe7tum6cCPjQDEuDOWiYHYGkcEhG758eUdR7XbaHrLQwj3IUxzJtiCHmgZNM4u/YsUfXsIDOfaFXacQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobx/6.3.12/mobx.umd.production.min.js" integrity="sha512-iZHgrBvAs6Uv0LnNaYWpoMETKbkXkqY6InvagJwSvLaZmi1OoYpNMGG08fJ/g3pBGubXjwh8xkYRDh3TT8Bx/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobx-react-lite/3.2.3/mobxreactlite.umd.production.min.js" integrity="sha512-mz+7U26GjZOmbwMjXEdWlijtEi/KwGETl6jtZnh+XtSEr+AtuIVE8qLlo2BAUrNIb9HUrILqLdikhbN4tTMPQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobx-react/7.2.1/mobxreact.umd.production.min.js" integrity="sha512-RXTQ3CbycIhWwotgBcRl8lck27AxjPSzMchq8wt+pdETpjPSDLSgsriDeIuYWCm7lsHM21/LfjFHTFVjPNvmyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-baqh{text-align:center;vertical-align:top}
+        .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+    </style>
+
+
+</head>
+
+<body>
+
+    <table class="tg" style="width:600px;">
+        <thead>
+            <tr>
+            <th class="tg-c3ow">
+                <div id="component1" name="com1"></div>
+            </th>
+            <th class="tg-c3ow">
+                <div id="component2"></div>
+            </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td class="tg-baqh">
+                <div id="component3"></div>
+            </td>
+            <td class="tg-baqh">
+                <div id="component4"></div>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+    <script>
+        const e = React.createElement;
+        const { observer } = mobxReact;
+
+        function lighten(color) {
+            switch (color.toLowerCase()) {
+                case 'red': return '#C71585';
+                case 'blue': return '#0096FF';
+                case 'green': return '#355E3B';
+                case 'black': return '#404040';
+                default: return 'white';
+            }
+        }
+    </script>
+    <script src='./src/ColorStore.js'></script>
+    <script src='./component/Component1.js'></script>
+    <script src='./component/Component2.js'></script>
+    <script src='./component/Component3.js'></script>
+    <script src='./component/Component4.js'></script>
+    <script>
+        ReactDOM.render(e(Component1, {name:'component1',color:'Red'}), document.querySelector('#component1'));
+        ReactDOM.render(e(Component2, {name:'component2',color:'Green'}), document.querySelector('#component2'));
+        ReactDOM.render(e(Component3, {name:'component3',color:'Blue'}), document.querySelector('#component3'));
+        ReactDOM.render(e(Component4, {name:'component4',color:'Black'}), document.querySelector('#component4'));
+    </script>
+  
+</body>
