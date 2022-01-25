@@ -23,6 +23,7 @@
 
 <body>
 
+    <div id='toggle'></div>
     <table class="tg">
         <thead>
             <tr>
@@ -62,15 +63,14 @@
         }
     </script>
     <script src='./store/ColorStore.js'></script>
-    <script src='./component/Component1.js'></script>
-    <script src='./component/Component2.js'></script>
-    <script src='./component/Component3.js'></script>
-    <script src='./component/Component4.js'></script>
+    <script src='./component/Toggle.js'></script>
+    <script src='./component/Component.js'></script>
     <script>
-        ReactDOM.render(e(Component1, {name:'component1',color:'Red'}), document.querySelector('#component1'));
-        ReactDOM.render(e(Component2, {name:'component2',color:'Green'}), document.querySelector('#component2'));
-        ReactDOM.render(e(Component3, {name:'component3',color:'Blue'}), document.querySelector('#component3'));
-        ReactDOM.render(e(Component4, {name:'component4',color:'Black'}), document.querySelector('#component4'));
+        ReactDOM.render(e(Toggle, {name:'toggle'}), document.querySelector('#toggle'));
+        ReactDOM.render(e(Component, {name:'component1',color:'Red'}), document.querySelector('#component1'));
+        ReactDOM.render(e(Component, {name:'component2',color:'Green'}), document.querySelector('#component2'));
+        ReactDOM.render(e(Component, {name:'component3',color:'Blue'}), document.querySelector('#component3'));
+        ReactDOM.render(e(Component, {name:'component4',color:'Black'}), document.querySelector('#component4'));
     </script>
   
 </body>

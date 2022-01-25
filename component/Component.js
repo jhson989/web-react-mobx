@@ -1,14 +1,15 @@
 
-const Component1 = observer (
-    class Component1 extends React.Component {
+const Component = observer (
+    class Component extends React.Component {
         render() {
             var name = this.props.name;
             var color = this.props.color;
-
-            if (colorStore.getColor == null)
+            if (colorStore.getColor == null && colorStore.getToggle == 'On')
                 var background = lighten(color)
-            else
+            else if (colorStore.getToggle == 'On')
                 var background = lighten(colorStore.getColor)
+            else
+                var background = 'white'
                 
             return (
                 e("div", {className:name}, 
