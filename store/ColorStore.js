@@ -35,6 +35,11 @@ class ColorStore {
             return 'Off';
     }
 
+    
+
 }
 
 const colorStore = new ColorStore();
+mobx.reaction(()=>colorStore.toggle, (toggle)=>{
+    console.log(toggle);
+});
